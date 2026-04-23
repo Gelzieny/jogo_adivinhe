@@ -1,9 +1,12 @@
 import styles from "./app.module.css";
+import { Button } from "./components/Button";
 import { Header } from "./components/Header";
+import { Input } from "./components/Input";
 import { Letter } from "./components/Letter";
+import { LettersUsed } from "./components/LettersUsed";
 import { Tip } from "./components/Tip";
 
-export function App() {
+export  function App() {
   function handleRestartGame() {
     alert("Reiniciar o jogo!");
   }
@@ -12,6 +15,7 @@ export function App() {
     <div className={styles.container}>
       <main>
         <Header current={5} max={10} onRestart={handleRestartGame} />
+
         <Tip tip="Uma das linguagens de programação mais utilizadas" />
 
         <div className={styles.word}>
@@ -20,7 +24,16 @@ export function App() {
           <Letter value="A" />
           <Letter value="C" />
           <Letter value="T" />
-        </div>        
+        </div>
+
+        <h4>Palpite</h4>
+
+        <div className={styles.guess}>
+          <Input autoFocus maxLength={1} placeholder="?" />
+          <Button title="Confirmar" />
+        </div>
+
+        <LettersUsed />
       </main>
     </div>
   );
